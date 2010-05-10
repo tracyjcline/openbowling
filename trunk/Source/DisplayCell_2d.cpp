@@ -5,6 +5,11 @@
 DisplayCell_2d::DisplayCell_2d( qreal x, qreal y, qreal width, qreal height, QGraphicsItem *cellParent )
 	: QGraphicsRectItem( x, y, width, height, cellParent )
 {
+	displayValue.clear();
+
+	const QString *qs = new QString("X");
+	setDisplayValue( qs );
+	delete qs;
 }
 
 DisplayCell_2d::~DisplayCell_2d()
@@ -16,12 +21,20 @@ void DisplayCell_2d::paint( QPainter *painter, const QStyleOptionGraphicsItem *o
 	Q_UNUSED( option );
 	Q_UNUSED( widget );
 
-	const QColor *brushColor = new QColor( 0, 0, 0 );
-	const QBrush *brush = new QBrush( *brushColor );
+	painter->fillRect( this->boundingRect(), QBrush( QColor( 255, 255, 255, 150 ) ) );
 
-	painter->setPen( QPen( *brush, 3.0, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin ) );
+	const QBrush *penBrush = new QBrush( QColor( 0, 0, 0 ) );
+
+	painter->setPen( QPen( *penBrush, 3.0, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin ) );
 	painter->drawRect( this->boundingRect() );
 
-	delete brushColor;
-	delete brush;
+	delete penBrush;
+
+	painter->drawText( this->boundingRect(), displayValue, QTextOption(Qt::AlignCenter) );
+}
+
+void DisplayCell_2d::setDisplayValue( const QString *val )
+{
+	displayValue.clear();
+	displayValue = *val;
 }
