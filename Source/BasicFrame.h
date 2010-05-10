@@ -17,6 +17,8 @@ public:
 	BasicFrame( qreal x, qreal y, qreal width, qreal height, QGraphicsItem *frameParent = 0, qint8 throws = DEFAULT_THROWS, qreal throwCellHeightPercent = DEFAULT_HEIGHT_PERCENT );
 	~BasicFrame();
 
+	void paint( QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget=0 );
+
 private:
 	 qint8 numBallCells;
 	 QList<DisplayCell_2d*> ballCellList;

@@ -13,10 +13,13 @@ MainWindow::MainWindow( qreal x, qreal y, qreal width, qreal height )
 	frame = new BasicFrame( 100.0, 100.0, 100.0, 100.0 );
 	this->addItem( frame );	// Scene now owns this frame;  don't delete in destructor
 
-	frame = new BasicFrame( -150.0, 100.0, 100.0, 100.0 );
+	frame = new BasicFrame( -150.0, 100.0, 100.0, 100.0, 0, 2, 0.45 );
 	this->addItem( frame );	// Scene now owns this frame;  don't delete in destructor
 
 	frame = new BasicFrame( -150, -100.0, 40.0, 40.0 );
+	this->addItem( frame );	// Scene now owns this frame;  don't delete in destructor
+
+	frame = new BasicFrame( 80, -180.0, 90.0, 90.0, 0, 3 );
 	this->addItem( frame );	// Scene now owns this frame;  don't delete in destructor
 }
 

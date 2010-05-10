@@ -1,3 +1,6 @@
+#include <QPen>
+#include <QBrush>
+
 #include "BasicFrame.h"
 
 BasicFrame::BasicFrame( qreal x, qreal y, qreal width, qreal height, QGraphicsItem *frameParent, qint8 throws, qreal throwCellHeightPercent )
@@ -53,3 +56,12 @@ BasicFrame::~BasicFrame()
 {
 	// No need to cleanup cell from the constructor... it will be taken care of by the scene
 }
+
+
+void BasicFrame::paint( QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget )
+{
+	Q_UNUSED( painter );
+	Q_UNUSED( option );
+	Q_UNUSED( widget );
+}
+
