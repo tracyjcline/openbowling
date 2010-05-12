@@ -11,7 +11,8 @@ public:
 	~DisplayCell_2d();
 
 	void paint( QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget=0 );
-	void setDisplayValue( const QString *val );
+
+	void setDisplayValue( QString val );
 
 private:
 	QString displayValue;

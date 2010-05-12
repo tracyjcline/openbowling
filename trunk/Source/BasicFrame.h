@@ -19,6 +19,8 @@ public:
 
 	void paint( QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget=0 );
 
+	void dataUpdate( QStringList *cellData );
+
 private:
 	 qint8 numBallCells;
 	 QList<DisplayCell_2d*> ballCellList;

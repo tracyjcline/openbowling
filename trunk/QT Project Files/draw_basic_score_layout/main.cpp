@@ -24,20 +24,3 @@ int main(int argc, char *argv[])
     return a.exec();
 }
 
-/**********
-{
-	 QApplication app(argc, argv);
-
-	 qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
-
-	 brakelightscene scene( -SCENEWIDTH/2, -SCENEHEIGHT/2, SCENEWIDTH, SCENEHEIGHT );
-
-	 QGraphicsView view(&scene);
-	 view.setRenderHint(QPainter::Antialiasing);
-	 view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
-	 view.setBackgroundBrush(QColor(10, 10, 30));
-	 view.setWindowTitle("HD BrakeLights");
-	 view.show();
-
-}
-***********/
