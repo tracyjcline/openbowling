@@ -59,6 +59,7 @@ MainWindow::MainWindow( qreal x, qreal y, qreal width, qreal height )
 MainWindow::~MainWindow()
 {
 	// Don't delete anything which was added to the scene with addItem()
+	delete tcpServer;
 }
 
 QRectF MainWindow::boundingRect() const
@@ -105,11 +106,6 @@ void MainWindow::tcpProcessData()
 
 		inData >> newScoreData;
 		scoreData = newScoreData.split( "," );
-		for( int i=0; i < scoreData.size(); i++ )
-		{
-			QString ekdebug;
-			ekdebug = scoreData.at( i );
-		}
 
 		sceneFrame->dataUpdate( &scoreData );
 		blockSize = 0;
