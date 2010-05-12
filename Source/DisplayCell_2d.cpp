@@ -7,9 +7,8 @@ DisplayCell_2d::DisplayCell_2d( qreal x, qreal y, qreal width, qreal height, QGr
 {
 	displayValue.clear();
 
-	const QString *qs = new QString("X");
+	QString qs = "X";
 	setDisplayValue( qs );
-	delete qs;
 }
 
 DisplayCell_2d::~DisplayCell_2d()
@@ -33,8 +32,8 @@ void DisplayCell_2d::paint( QPainter *painter, const QStyleOptionGraphicsItem *o
 	painter->drawText( this->boundingRect(), displayValue, QTextOption(Qt::AlignCenter) );
 }
 
-void DisplayCell_2d::setDisplayValue( const QString *val )
+void DisplayCell_2d::setDisplayValue( QString val )
 {
-	displayValue.clear();
-	displayValue = *val;
+	displayValue = val;
+	update( this->boundingRect() );
 }

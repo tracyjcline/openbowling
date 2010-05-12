@@ -10,4 +10,5 @@ SOURCES += main.cpp \
 HEADERS += mainwindow.h \
     ../../Source/DisplayCell_2d.h \
     ../../Source/BasicFrame.h
+QT += network
 FORMS += 

@@ -65,3 +65,18 @@ void BasicFrame::paint( QPainter *painter, const QStyleOptionGraphicsItem *optio
 	Q_UNUSED( widget );
 }
 
+void BasicFrame::dataUpdate( QStringList *cellData )
+{
+	for(int i=0; i < ballCellList.size(); i++ )
+	{
+		if( i < cellData->size() )
+		{
+			ballCellList.at(i)->setDisplayValue( cellData->at(i) );
+		}
+		else
+		{
+			ballCellList.at(i)->setDisplayValue( "" );
+		}
+	}
+	frameScoreCell->setDisplayValue( cellData->last() );
+}
