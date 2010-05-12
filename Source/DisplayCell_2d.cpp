@@ -6,9 +6,6 @@ DisplayCell_2d::DisplayCell_2d( qreal x, qreal y, qreal width, qreal height, QGr
 	: QGraphicsRectItem( x, y, width, height, cellParent )
 {
 	displayValue.clear();
-
-	QString qs = "X";
-	setDisplayValue( qs );
 }
 
 DisplayCell_2d::~DisplayCell_2d()
