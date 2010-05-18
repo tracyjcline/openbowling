@@ -39,10 +39,6 @@ BasicFrame::BasicFrame( qreal x, qreal y, qreal width, qreal height, QGraphicsIt
 		qreal xVal = this->boundingRect().x() + this->boundingRect().width() - ((qreal)i * DEFAULT_CELL_SPACING) - (throwCellWidth * ( (qreal)i + 1 ));
 		cell = new DisplayCell_2d( xVal, this->boundingRect().y(), throwCellWidth, throwCellHeight, this );
 		ballCellList.append( cell );
-		if( i == 0 )
-			cell->setDisplayValue("X");
-		else
-			cell->setDisplayValue("/");
 	}
 
 
@@ -53,7 +49,6 @@ BasicFrame::BasicFrame( qreal x, qreal y, qreal width, qreal height, QGraphicsIt
 										this->boundingRect().height() - throwCellHeight - DEFAULT_CELL_SPACING,
 										this );
 	frameScoreCell = cell;
-	frameScoreCell->setDisplayValue("20");
 
 }
 

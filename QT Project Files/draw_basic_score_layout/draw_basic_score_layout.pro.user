@@ -77,7 +77,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-KT0iwfbOU6,guid=ffd9ed8cbb1ab5b2e074d5774be954ab</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-ZtYoqQUv0x,guid=1440bdd1dc407875e86592f14bf2b09c</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
     <value type="QString">DESKTOP_SESSION=gnome</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -85,8 +85,8 @@
     <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
     <value type="QString">GDM_LANG=en_US.UTF-8</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-G92Dbp</value>
-    <value type="QString">GNOME_KEYRING_PID=1711</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-PXjriH</value>
+    <value type="QString">GNOME_KEYRING_PID=1697</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">HOME=/home/captaink</value>
     <value type="QString">LANG=en_US.UTF-8</value>
@@ -97,17 +97,17 @@
     <value type="QString">PATH=/opt/qtsdk-2010.02/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
     <value type="QString">PWD=/home/captaink</value>
     <value type="QString">QTDIR=/opt/qtsdk-2010.02/qt</value>
-    <value type="QString">SESSION_MANAGER=local/ekoski-ubuntu:@/tmp/.ICE-unix/1729,unix/ekoski-ubuntu:/tmp/.ICE-unix/1729</value>
+    <value type="QString">SESSION_MANAGER=local/ekoski-ubuntu:@/tmp/.ICE-unix/1715,unix/ekoski-ubuntu:/tmp/.ICE-unix/1715</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=1763</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-G92Dbp/ssh</value>
+    <value type="QString">SSH_AGENT_PID=1749</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-PXjriH/ssh</value>
     <value type="QString">USER=captaink</value>
     <value type="QString">USERNAME=captaink</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-captaink-VqEV54/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-captaink-wNWCcx/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
-    <value type="QString">XDG_SESSION_COOKIE=cc7d3c3c1ec22b7f5757a74e4be02cea-1273582763.326527-960748040</value>
+    <value type="QString">XDG_SESSION_COOKIE=cc7d3c3c1ec22b7f5757a74e4be02cea-1274196124.573425-43280141</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
     <value type="QString">/home/captaink/Projects/Repositories/Open Bowling/QT Project Files/draw_basic_score_layout/draw_basic_score_layout.pro</value>
@@ -126,7 +126,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-KT0iwfbOU6,guid=ffd9ed8cbb1ab5b2e074d5774be954ab</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-ZtYoqQUv0x,guid=1440bdd1dc407875e86592f14bf2b09c</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
     <value type="QString">DESKTOP_SESSION=gnome</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -134,8 +134,8 @@
     <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
     <value type="QString">GDM_LANG=en_US.UTF-8</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-G92Dbp</value>
-    <value type="QString">GNOME_KEYRING_PID=1711</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-PXjriH</value>
+    <value type="QString">GNOME_KEYRING_PID=1697</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">HOME=/home/captaink</value>
     <value type="QString">LANG=en_US.UTF-8</value>
@@ -146,17 +146,17 @@
     <value type="QString">PATH=/opt/qtsdk-2010.02/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
     <value type="QString">PWD=/home/captaink</value>
     <value type="QString">QTDIR=/opt/qtsdk-2010.02/qt</value>
-    <value type="QString">SESSION_MANAGER=local/ekoski-ubuntu:@/tmp/.ICE-unix/1729,unix/ekoski-ubuntu:/tmp/.ICE-unix/1729</value>
+    <value type="QString">SESSION_MANAGER=local/ekoski-ubuntu:@/tmp/.ICE-unix/1715,unix/ekoski-ubuntu:/tmp/.ICE-unix/1715</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=1763</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-G92Dbp/ssh</value>
+    <value type="QString">SSH_AGENT_PID=1749</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-PXjriH/ssh</value>
     <value type="QString">USER=captaink</value>
     <value type="QString">USERNAME=captaink</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-captaink-VqEV54/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-captaink-wNWCcx/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
-    <value type="QString">XDG_SESSION_COOKIE=cc7d3c3c1ec22b7f5757a74e4be02cea-1273582763.326527-960748040</value>
+    <value type="QString">XDG_SESSION_COOKIE=cc7d3c3c1ec22b7f5757a74e4be02cea-1274196124.573425-43280141</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
@@ -172,7 +172,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-KT0iwfbOU6,guid=ffd9ed8cbb1ab5b2e074d5774be954ab</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-ZtYoqQUv0x,guid=1440bdd1dc407875e86592f14bf2b09c</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
     <value type="QString">DESKTOP_SESSION=gnome</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -180,8 +180,8 @@
     <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
     <value type="QString">GDM_LANG=en_US.UTF-8</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-G92Dbp</value>
-    <value type="QString">GNOME_KEYRING_PID=1711</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-PXjriH</value>
+    <value type="QString">GNOME_KEYRING_PID=1697</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">HOME=/home/captaink</value>
     <value type="QString">LANG=en_US.UTF-8</value>
@@ -192,17 +192,17 @@
     <value type="QString">PATH=/opt/qtsdk-2010.02/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
     <value type="QString">PWD=/home/captaink</value>
     <value type="QString">QTDIR=/opt/qtsdk-2010.02/qt</value>
-    <value type="QString">SESSION_MANAGER=local/ekoski-ubuntu:@/tmp/.ICE-unix/1729,unix/ekoski-ubuntu:/tmp/.ICE-unix/1729</value>
+    <value type="QString">SESSION_MANAGER=local/ekoski-ubuntu:@/tmp/.ICE-unix/1715,unix/ekoski-ubuntu:/tmp/.ICE-unix/1715</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=1763</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-G92Dbp/ssh</value>
+    <value type="QString">SSH_AGENT_PID=1749</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-PXjriH/ssh</value>
     <value type="QString">USER=captaink</value>
     <value type="QString">USERNAME=captaink</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-captaink-VqEV54/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-captaink-wNWCcx/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
-    <value type="QString">XDG_SESSION_COOKIE=cc7d3c3c1ec22b7f5757a74e4be02cea-1273582763.326527-960748040</value>
+    <value type="QString">XDG_SESSION_COOKIE=cc7d3c3c1ec22b7f5757a74e4be02cea-1274196124.573425-43280141</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">true</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
