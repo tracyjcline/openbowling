@@ -1,14 +1,23 @@
 #include <QPainter>
+#include <QPropertyAnimation>
+#include <QGraphicsScene>
 
 #include "DisplayCell_2d.h"
 
 #define FONT_MAX_START_SIZE_F 72.0
 #define FONT_DECREMENT_PERCENT 0.80
 
+#define ANIMATION_TIME_MS 2000
+
 DisplayCell_2d::DisplayCell_2d( qreal x, qreal y, qreal width, qreal height, QGraphicsItem *cellParent )
-	: QGraphicsRectItem( x, y, width, height, cellParent )
+	: QObject(), QGraphicsRectItem( x, y, width, height, cellParent )
 {
 	displayValue.clear();
+	animSize = boundingRect();
+
+	// prepare animation
+	animation.setTargetObject( this );
+	animation.setPropertyName( "animSize" );
 }
 
 DisplayCell_2d::~DisplayCell_2d()
@@ -24,8 +33,16 @@ void DisplayCell_2d::paint( QPainter *painter, const QStyleOptionGraphicsItem *o
 
 	const QBrush *penBrush = new QBrush( QColor( 0, 0, 0 ) );
 
-	painter->setPen( QPen( *penBrush, 3.0, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin ) );
-	painter->drawRect( this->boundingRect() );
+	qreal penwidth = 2.0;
+	painter->setPen( QPen( *penBrush, penwidth, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin ) );
+
+	// The outline is split across the bounding rect... include 1/2 penwidth in the bounding rect to avoid artifacts
+	// ... for further details on this, see QRectF QGraphicsItem::boundingRect() const [pure virtual] in the QT docs.
+	QRectF fullOutline( QRectF(this->boundingRect().x() + (penwidth/2.0),
+									  this->boundingRect().y() + (penwidth/2.0),
+									  this->boundingRect().width() - (penwidth/2.0),
+									  this->boundingRect().height() - (penwidth/2.0)) );
+	painter->drawRect( fullOutline );
 
 	delete penBrush;
 
@@ -53,6 +70,33 @@ void DisplayCell_2d::paint( QPainter *painter, const QStyleOptionGraphicsItem *o
 
 void DisplayCell_2d::setDisplayValue( QString val )
 {
-	displayValue = val;
-	update( this->boundingRect() );
+	if( displayValue != val )
+	{
+		displayValue = val;
+		animation.setDuration( ANIMATION_TIME_MS );
+		QRectF ekdebug = scene()->sceneRect();
+		animation.setStartValue( QRectF( scene()->sceneRect().x(),
+													scene()->sceneRect().y(),
+													scene()->sceneRect().width(),
+													scene()->sceneRect().height()) );
+		animation.setEndValue( QRectF( this->boundingRect().x(),
+												this->boundingRect().y(),
+												this->boundingRect().width(),
+												this->boundingRect().height() ) );
+		animation.setEasingCurve( QEasingCurve::OutBounce );
+		animation.start();
+	}
+}
+
+
+QRectF DisplayCell_2d::getAnimSize()
+{
+	return animSize;
+}
+
+void DisplayCell_2d::setAnimSize( QRectF sz )
+{
+	animSize = sz;
+	setRect( animSize );
+
 }
