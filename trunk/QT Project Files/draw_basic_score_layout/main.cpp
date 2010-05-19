@@ -4,12 +4,13 @@
 #define SCENEWIDTH 400
 #define SCENEHEIGHT 400
 
+#ifdef Q_WS_WIN
+#warning Windows is a terrible OS; you should think about using something else.
+#endif
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-	 //MainWindow w;
-	 //w.show();
 
 	 MainWindow scene( -SCENEWIDTH/2, -SCENEHEIGHT/2, SCENEWIDTH, SCENEHEIGHT );
 

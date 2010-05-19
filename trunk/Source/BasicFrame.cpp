@@ -3,6 +3,7 @@
 
 #include "BasicFrame.h"
 
+
 BasicFrame::BasicFrame( qreal x, qreal y, qreal width, qreal height, QGraphicsItem *frameParent, qint8 throws, qreal throwCellHeightPercent )
 	: QGraphicsRectItem( x, y, width, height, frameParent )
 {
