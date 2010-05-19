@@ -9,7 +9,7 @@
 MainWindow::MainWindow( qreal x, qreal y, qreal width, qreal height )
 	: QGraphicsScene( x, y, width, height )
 {
-	const QString *bgPath = new QString( "../../Images/wood.png");
+	const QString *bgPath = new QString( "../../../Images/wood.png");
 	const QPixmap *simpleBackground = new QPixmap( *bgPath  );
 	delete bgPath;
 	QGraphicsPixmapItem *bgItem = this->addPixmap( *simpleBackground );	// Scene now owns this PixItem;  don't delete in destructor
