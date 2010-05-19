@@ -3,7 +3,7 @@
 
 #include <QGraphicsRectItem>
 
-#include "../../Source/DisplayCell_2d.h"
+#include "DisplayCell_2d.h"
 
 #define DEFAULT_THROWS 2
 #define DEFAULT_HEIGHT_PERCENT 0.30
