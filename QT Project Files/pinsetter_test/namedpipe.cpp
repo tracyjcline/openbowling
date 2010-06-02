@@ -16,6 +16,8 @@ NamedPipe::NamedPipe( QObject *parent ) :
 {
     int i, value;
 
+    connected = 0;
+
     value = ::mkfifo(FIFO, S_IRWXU | S_IRWXO | S_IRWXG);
     if (value == -1)
     {
@@ -42,31 +44,58 @@ NamedPipe::NamedPipe( QObject *parent ) :
     // if we did not find one, use IPv4 localhost
     if (ipAddress.isEmpty())
         ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
-std::cout << "ipAddress " << (char *)ipAddress.toLatin1().data() << std::endl;
-    connectToServer();
+
+    std::cout << "ipAddress: " << (char *)ipAddress.toLatin1().data() << "  port: " << TCP_SEND_PORT << std::endl;
+
+#ifdef LKJH
+    blockSize = 0;
+    std::cout << "connectToServer: 1" << std::endl;
+    if( tcpSocket != NULL )
+    {
+        tcpSocket->abort();
+        delete tcpSocket;
+    }
+
+    std::cout << "connectToServer: 2" << std::endl;
+    tcpSocket = new QTcpSocket(parent);
+
+    std::cout << "connectToServer: 3" << std::endl;
+    connect(tcpSocket, SIGNAL(readyRead()), this, SLOT(readFortune()));
+    connect( tcpSocket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(displayError(QAbstractSocket::SocketError)) );
+    connect( tcpSocket, SIGNAL( connected() ), this, SLOT( tcpConnectionUp() ) );
+    connect( tcpSocket, SIGNAL( disconnected() ), this, SLOT( tcpConnectionDown() ) );
+#endif
+//    connectToServer(parent);
 
 }
 
 void NamedPipe::connectToServer()
 {
-     blockSize = 0;
-     std::cout << "connectToServer: 1" << std::endl;
-     if( tcpSocket != NULL )
-     {
-         tcpSocket->abort();
-         delete tcpSocket;
-     }
 
-     std::cout << "connectToServer: 2" << std::endl;
-     tcpSocket = new QTcpSocket();
+//    std::cout << "connectToHost" << std::endl;
+//    tcpSocket->connectToHost(ipAddress, TCP_SEND_PORT);
 
-     std::cout << "connectToServer: 3" << std::endl;
-     connect( tcpSocket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(displayError(QAbstractSocket::SocketError)) );
+}
 
-    std::cout << "connectToServer: 4" << std::endl;
+void NamedPipe::readFortune()
+{
+        std::cout << "readFortune" << std::endl;
+        connected = 1;
+//        ReadPipe();
+}
 
-    tcpSocket->connectToHost( ipAddress, TCP_SEND_PORT);
-    std::cout << "connectToServer: 5" << std::endl;
+void NamedPipe::tcpConnectionUp()
+{
+        std::cout << "tcpConnectionUp" << std::endl;
+        connected = 1;
+//        ReadPipe();
+}
+
+void NamedPipe::tcpConnectionDown()
+{
+        std::cout << "tcpConnectionDown" << std::endl;
+        tcpSocket = NULL;
+        connected = 0;
 }
 
 void NamedPipe::displayError(QAbstractSocket::SocketError socketError)
@@ -76,7 +105,7 @@ void NamedPipe::displayError(QAbstractSocket::SocketError socketError)
         std::cout << "ERROR: Remote host was closed." << FIFO << std::endl;
         break;
     case QAbstractSocket::HostNotFoundError:
-        std::cout << "ERROR: The host was not found." << std::endl;
+        std::cout << "ERROR: The host was not found. " << (char *)tcpSocket->errorString().toLatin1().data() << std::endl;
         break;
     case QAbstractSocket::ConnectionRefusedError:
         std::cout << "ERROR: The connection was refused by the peer." << std::endl;
@@ -94,7 +123,7 @@ void NamedPipe::ReadPipe()
     int i, value;
 
  std::cout << "1**** " << std::endl;
-
+#ifdef ASDGF
     fd = ::open(FIFO, m);
 std::cout << "2**** " << std::endl;
 
@@ -117,7 +146,26 @@ std::cout << "2**** " << std::endl;
     {
         ::close(fd);
     }
+#endif
 
+    const int Timeout = 5 * 1000;
+
+     tcpSocket->connectToHost(ipAddress, TCP_SEND_PORT);
+
+     if (!tcpSocket->waitForConnected(Timeout)) {
+         std::cout << "ERROR2: " << (char *)tcpSocket->errorString().toLatin1().data() << std::endl;
+         return;
+     }
+
+     while (tcpSocket->bytesAvailable() < (int)sizeof(quint16)) {
+         if (!tcpSocket->waitForReadyRead(Timeout)) {
+             std::cout << "ERROR3: " << (char *)tcpSocket->errorString().toLatin1().data() << std::endl;
+             return;
+         }
+     }
+
+
+    std::cout << "Make block" << std::endl;
     QString scoresToSend = "5,4,9";
     QByteArray block;
     QDataStream outData(&block, QIODevice::WriteOnly);
