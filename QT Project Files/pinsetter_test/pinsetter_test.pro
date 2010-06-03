@@ -9,5 +9,7 @@ CONFIG += console
 CONFIG -= app_bundle
 TEMPLATE = app
 SOURCES += main.cpp \
-    namedpipe.cpp
-HEADERS += namedpipe.h
+    namedpipe.cpp \
+    client.cpp
+HEADERS += namedpipe.h \
+    client.h

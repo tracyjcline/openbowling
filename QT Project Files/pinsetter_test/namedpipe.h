@@ -1,8 +1,9 @@
 #ifndef NAMEDPIPE_H
 #define NAMEDPIPE_H
 
-//#include <QtCore/QObject>
-#include <QTcpSocket>
+#include <QtCore/QObject>
+
+#include "client.h"
 
 #define LINE_LENGTH  12
 
@@ -10,7 +11,7 @@ class NamedPipe : public QObject
 {
     Q_OBJECT
     public:
-        explicit NamedPipe(QObject *parent);
+        explicit NamedPipe(Client *parent);
 //                ~NamedPipe();
 
         void ReadPipe();
@@ -21,20 +22,11 @@ class NamedPipe : public QObject
     //	 void tcpSetupClient();
 
     public slots:
-        void connectToServer();
-        void displayError(QAbstractSocket::SocketError socketError);
-        void tcpConnectionUp();
-        void tcpConnectionDown();
-        void readFortune();
 
     private:
-        int  fd;
-        char buffer[LINE_LENGTH];
-        quint16 blockSize;
-
-        QTcpSocket *tcpSocket;
-        QString ipAddress;
-
+        int      fd;
+        char     buffer[LINE_LENGTH];
+        Client  *client;
 };
 
 
