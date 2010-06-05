@@ -19,9 +19,11 @@ public slots:
     void tcpConnectionUp();
     void tcpConnectionDown();
     void displayError(QAbstractSocket::SocketError socketError);
+    void tcpWritten(qint64);
 
 private:
 
+    int        bytes;
     quint16    blockSize;
     QTcpSocket tcpSocket;
     QString    ipAddress;

@@ -27,6 +27,8 @@ class NamedPipe : public QObject
         int      fd;
         char     buffer[LINE_LENGTH];
         Client  *client;
+
+        void     processData();
 };
 
 
