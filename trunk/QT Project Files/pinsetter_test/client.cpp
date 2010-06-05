@@ -33,38 +33,32 @@ Client::Client( QObject *parent ) :
     connect( &tcpSocket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(displayError(QAbstractSocket::SocketError)) );
     connect( &tcpSocket, SIGNAL( connected() ), this, SLOT( tcpConnectionUp() ) );
     connect( &tcpSocket, SIGNAL( disconnected() ), this, SLOT( tcpConnectionDown() ) );
+    connect( &tcpSocket, SIGNAL( bytesWritten(qint64) ), this, SLOT( tcpWritten(qint64) ) );
 
 }
 
 void Client::tcpConnectionUp()
 {
-        std::cout << "tcpConnectionUp" << std::endl;
+    std::cout << "tcpConnectionUp" << std::endl;
 //        ReadPipe();
-        NamedPipe mypipe(this);
+    NamedPipe mypipe(this);
 }
 
 void Client::tcpConnectionDown()
 {
-        std::cout << "tcpConnectionDown" << std::endl;
+    std::cout << "tcpConnectionDown" << std::endl;
+}
+
+void Client::tcpWritten(qint64 bytes)
+{
+    std::cout << "tcpWritten: " << bytes << std::endl;
+    NamedPipe mypipe(this);
 }
 
 void Client::displayError(QAbstractSocket::SocketError socketError)
 {
-    switch (socketError)
-    {
-    case QAbstractSocket::RemoteHostClosedError:
-        std::cout << "ERROR: Remote host was closed." << std::endl;
-        break;
-    case QAbstractSocket::HostNotFoundError:
-        std::cout << "ERROR: The host was not found. " << (char *)tcpSocket.errorString().toLatin1().data() << std::endl;
-        break;
-    case QAbstractSocket::ConnectionRefusedError:
-        std::cout << "ERROR: The connection was refused by the peer." << std::endl;
-        break;
-    default:
-        std::cout << "ERROR: The following error occurred: " <<
+        std::cout << "ERROR: " <<
                 (char *)tcpSocket.errorString().toLatin1().data() << std::endl;
-    }
 
 }
 
